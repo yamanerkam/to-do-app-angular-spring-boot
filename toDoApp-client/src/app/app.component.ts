@@ -14,20 +14,23 @@ export class AppComponent {
   title = 'toDoApp-client';
   taskName : string = '';
   tasks : string[] = ['a','u']
+  updateInput : boolean = false;
 
   addNewToDo(){
     this.tasks.push(this.taskName)
     this.taskName = ''
-    console.log(this.tasks)
   }
 
-  updateTheTask(){
-    //
+  updateTheTask(task:any){
+    // update dialogue will be added here
+    const indexOfTask = this.tasks.findIndex((t)=>t==task);
+    this.tasks[indexOfTask] = '' 
   }
 
   deleteTheTask(task:any){
-      const indexOfTask = this.tasks.findIndex((t)=>t==task);
-      this.tasks.splice(indexOfTask ,1);
+    // confirmation dialogue will be added here
+    const indexOfTask = this.tasks.findIndex((t)=>t==task);
+    this.tasks.splice(indexOfTask ,1);
   }
   
 
