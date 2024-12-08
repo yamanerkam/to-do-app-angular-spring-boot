@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'toDoApp-client';
   taskName : string = '';
-  tasks : string[] = []
+  tasks : string[] = ['a','u']
 
   addNewToDo(){
     this.tasks.push(this.taskName)
@@ -21,6 +21,14 @@ export class AppComponent {
     console.log(this.tasks)
   }
 
+  updateTheTask(){
+    //
+  }
+
+  deleteTheTask(task:any){
+      const indexOfTask = this.tasks.findIndex((t)=>t==task);
+      this.tasks.splice(indexOfTask ,1);
+  }
   
 
 
