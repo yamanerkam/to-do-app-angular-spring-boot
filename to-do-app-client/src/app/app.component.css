@@ -80,3 +80,35 @@
     display: flex;
     gap: 10px;
 }
+
+.new-to-do {
+    /* Center the dialog trigger if needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog-content {
+    margin-bottom: 1.5rem;
+}
+
+.task-input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #ced4da;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.task-input:focus {
+    border-color: #80bdff;
+    outline: none;
+}
+
+.dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}

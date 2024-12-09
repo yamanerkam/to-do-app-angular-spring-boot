@@ -25,10 +25,16 @@ export class AppComponent {
   taskName: string = '';
   tasks: string[] = ['a', 'u']
   updateInput: boolean = false;
+  visibleAddDialog: boolean = false;
+
+  showAddDialog() {
+    this.visibleAddDialog = true;
+  }
 
   addNewToDo() {
-    this.tasks.push(this.taskName)
-    this.taskName = ''
+    this.tasks.push(this.taskName);
+    this.taskName = '';
+    this.visibleAddDialog = false;
   }
 
   updateTheTask(task: any) {

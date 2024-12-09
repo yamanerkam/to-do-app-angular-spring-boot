@@ -1,28 +1,40 @@
 <main class="main">
   <div class="content">
-    <h1 class="title">To-Do App</h1>
 
-    <div class="new-to-do">
-      <input pInputText placeholder="Name of the task" [(ngModel)]="taskName" class="task-input" />
-      <p-button label="Add" icon="pi pi-plus" class="add-button" (click)="addNewToDo()"></p-button>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+      <h1 class="title">To-Do App</h1>
+      <p-button (click)="showAddDialog()" icon="pi pi-plus" />
     </div>
 
-    <div class="tasks">
-      <ul class="task-list">
-        <li class="task-item" *ngFor="let task of tasks">
-          <span class="task-name">{{ task }}</span>
-          <div class="task-actions">
-            <p-button icon="pi pi-pencil" class="update-button" (click)="updateTheTask(task)"
-              tooltip="Update Task"></p-button>
-            <p-button (click)="deleteTheTask(task)" icon="pi pi-trash" />
+    <<div class="new-to-do">
+      <p-dialog header="Add a new To-Do" [modal]="true" [(visible)]="visibleAddDialog" [style]="{ width: '25rem' }"
+        [contentStyle]="{'padding': '2rem'}" [baseZIndex]="10000">
+        <div class="dialog-content">
+          <input pInputText placeholder="Name of the task" [(ngModel)]="taskName" class="task-input" />
+        </div>
+        <div class="dialog-footer">
+          <p-button label="Cancel" severity="secondary" (click)="visibleAddDialog = false"></p-button>
+          <p-button label="Save" (click)="addNewToDo()"></p-button>
+        </div>
+      </p-dialog>
+  </div>
 
-          </div>
-        </li>
-      </ul>
-    </div>
+
+  <div class="tasks">
+    <ul class="task-list">
+      <li class="task-item" *ngFor="let task of tasks">
+        <span class="task-name">{{ task }}</span>
+        <div class="task-actions">
+          <p-button icon="pi pi-pencil" class="update-button" (click)="updateTheTask(task)"
+            tooltip="Update Task"></p-button>
+          <p-button (click)="deleteTheTask(task)" icon="pi pi-trash" />
+
+        </div>
+      </li>
+    </ul>
+  </div>
   </div>
 </main>
-
 
 
 
