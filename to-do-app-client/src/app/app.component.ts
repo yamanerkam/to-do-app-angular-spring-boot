@@ -26,9 +26,17 @@ export class AppComponent {
   tasks: string[] = ['a', 'u']
   updateInput: boolean = false;
   visibleAddDialog: boolean = false;
+  visibleUpdateDialog: boolean = false;
+  currentTask: any;
+  updatedTask: any;
 
   showAddDialog() {
     this.visibleAddDialog = true;
+  }
+
+  showUpdateDialog(task: any) {
+    this.visibleUpdateDialog = true;
+    this.currentTask = task;
   }
 
   addNewToDo() {
@@ -37,10 +45,10 @@ export class AppComponent {
     this.visibleAddDialog = false;
   }
 
-  updateTheTask(task: any) {
-    // update dialogue will be added here
+  updateTheTask(task: any, newTask: any) {
     const indexOfTask = this.tasks.findIndex((t) => t == task);
-    this.tasks[indexOfTask] = ''
+    this.tasks[indexOfTask] = this.updatedTask
+    this.visibleUpdateDialog = false
   }
 
   deleteTheTask(task: any) {
