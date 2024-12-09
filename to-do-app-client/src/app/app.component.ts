@@ -7,7 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ConfirmationService } from 'primeng/api';
 import { ConfirmDialog } from 'primeng/confirmdialog';
 import { Dialog } from 'primeng/dialog';
-
+import { ToDoItem } from '../shared/models/toDoItem';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +29,10 @@ export class AppComponent {
   visibleUpdateDialog: boolean = false;
   currentTask: any;
   updatedTask: any;
+
+  taskItems = [
+    new ToDoItem('learn how to cook cats', true)
+  ]
 
   showAddDialog() {
     this.visibleAddDialog = true;
@@ -54,7 +58,7 @@ export class AppComponent {
   deleteTheTask(task: any) {
     console.log()
     this.confirmationService.confirm({
-      message: 'Are you sure that you want to proceed?',
+      message: 'Are you sure that you want to delete this To-Do?',
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
