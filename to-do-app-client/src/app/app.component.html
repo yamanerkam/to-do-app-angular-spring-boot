@@ -1,0 +1,27 @@
+<main class="main">
+  <div class="content" style="display: flex; flex-direction: column;justify-content: center; align-items: center;">
+    <h1>to do App</h1>
+    <div class="new-to-do">
+      <input placeholder="name of the task" [(ngModel)]="taskName" />
+      <button (click)="addNewToDo()"> add </button>
+    </div>
+
+    <div class="tasks">
+      <ul style="list-style-type: none; display: flex; flex-direction: column; justify-content: start;">
+        <li style=" width: 200px;display: flex; gap: 10px;" *ngFor="let task of tasks">
+          <span>{{task}}</span>
+          <button (click)="updateTheTask(task)">update</button>
+          <button (click)="deleteTheTask(task)">delete</button>
+          <div class="card flex justify-center">
+            <p-button label="Check"></p-button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+
+
+
+<router-outlet />
