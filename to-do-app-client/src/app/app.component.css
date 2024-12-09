@@ -1,0 +1,82 @@
+/* main.css */
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f6f8;
+    padding: 20px;
+}
+
+.content {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.title {
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #333333;
+}
+
+.new-to-do {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.task-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.add-button {
+    padding: 0 20px;
+    height: 42px;
+    border-radius: 8px;
+}
+
+.tasks {
+    text-align: left;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fafafa;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.task-item:hover {
+    background: #f0f0f0;
+}
+
+.task-name {
+    flex: 1;
+    font-size: 1em;
+    color: #555555;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
