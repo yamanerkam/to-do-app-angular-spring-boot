@@ -7,17 +7,21 @@
     </div>
 
     <div class="tasks">
-      <ul class="task-list">
+      <ul *ngIf="taskItems.length > 0" class="task-list">
         <li class="task-item" *ngFor="let task of taskItems">
+          <input [checked]="task.isComplete" type="checkbox">
+          
           <span class="task-name">{{ task.toDoText }}</span>
           <div class="task-actions">
             <p-button icon="pi pi-pencil" class="update-button" (click)="showUpdateDialog(task.toDoText)"
               tooltip="Update Task"></p-button>
             <p-button (click)="deleteTheTask(task.toDoText)" icon="pi pi-trash" />
-
           </div>
         </li>
       </ul>
+      <div style="color: black;"  *ngIf="taskItems.length == 0">
+        nothing
+      </div>
     </div>
   </div>
 </main>

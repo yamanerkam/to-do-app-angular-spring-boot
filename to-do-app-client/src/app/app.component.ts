@@ -30,8 +30,8 @@ export class AppComponent {
   currentTask: string = '';
   updatedTask: any;
 
-  taskItems = [
-    new ToDoItem('learn how to cook cats', true),
+  taskItems: ToDoItem[] = [
+    new ToDoItem('learn how to cook cats', false),
     new ToDoItem('go home', true)
   ]
 
