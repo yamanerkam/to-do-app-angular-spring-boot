@@ -39,6 +39,14 @@ export class AppComponent {
     this.visibleAddDialog = true;
   }
 
+  checker(isComplete: boolean) {
+    if (isComplete == true) {
+      //
+    } else {
+      //
+    }
+  }
+
   showUpdateDialog(task: any) {
     this.visibleUpdateDialog = true;
     this.currentTask = task;
