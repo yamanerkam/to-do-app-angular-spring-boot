@@ -27,11 +27,12 @@ export class AppComponent {
   updateInput: boolean = false;
   visibleAddDialog: boolean = false;
   visibleUpdateDialog: boolean = false;
-  currentTask: any;
+  currentTask: string = '';
   updatedTask: any;
 
   taskItems = [
-    new ToDoItem('learn how to cook cats', true)
+    new ToDoItem('learn how to cook cats', true),
+    new ToDoItem('go home', true)
   ]
 
   showAddDialog() {
@@ -44,26 +45,36 @@ export class AppComponent {
   }
 
   addNewToDo() {
-    this.tasks.push(this.taskName);
+    const newToDo = new ToDoItem(this.taskName)
+    this.taskItems.push(newToDo);
     this.taskName = '';
     this.visibleAddDialog = false;
   }
 
-  updateTheTask(task: any, newTask: any) {
-    const indexOfTask = this.tasks.findIndex((t) => t == task);
-    this.tasks[indexOfTask] = this.updatedTask
-    this.visibleUpdateDialog = false
+  updateTheTask(task: string) {
+    const indexOfTask = this.taskItems.findIndex((t) => t.toDoText === this.currentTask);
+
+    if (task == undefined) {
+      this.visibleUpdateDialog = false;
+      return
+    }
+    else if (indexOfTask !== -1) {
+      this.taskItems[indexOfTask].toDoText = task;
+      this.visibleUpdateDialog = false;
+    } else {
+      console.error('Task not found');
+    }
   }
 
+
   deleteTheTask(task: any) {
-    console.log()
     this.confirmationService.confirm({
       message: 'Are you sure that you want to delete this To-Do?',
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        const indexOfTask = this.tasks.findIndex((t) => t == task);
-        this.tasks.splice(indexOfTask, 1);
+        const indexOfTask = this.taskItems.findIndex((t) => t == task);
+        this.taskItems.splice(indexOfTask, 1);
       },
       reject: () => { return }
     });

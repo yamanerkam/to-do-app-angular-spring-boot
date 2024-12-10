@@ -8,12 +8,12 @@
 
     <div class="tasks">
       <ul class="task-list">
-        <li class="task-item" *ngFor="let task of tasks">
-          <span class="task-name">{{ task }}</span>
+        <li class="task-item" *ngFor="let task of taskItems">
+          <span class="task-name">{{ task.toDoText }}</span>
           <div class="task-actions">
-            <p-button icon="pi pi-pencil" class="update-button" (click)="showUpdateDialog(task)"
+            <p-button icon="pi pi-pencil" class="update-button" (click)="showUpdateDialog(task.toDoText)"
               tooltip="Update Task"></p-button>
-            <p-button (click)="deleteTheTask(task)" icon="pi pi-trash" />
+            <p-button (click)="deleteTheTask(task.toDoText)" icon="pi pi-trash" />
 
           </div>
         </li>
@@ -32,8 +32,8 @@
         class="task-input" />
     </div>
     <div class="dialog-footer">
-      <p-button label="Cancel" severity="secondary" (click)="visibleAddDialog = false"></p-button>
-      <p-button label="Save" (click)="updateTheTask(currentTask, updatedTask)"></p-button>
+      <p-button label="Cancel" severity="secondary" (click)="visibleUpdateDialog = false"></p-button>
+      <p-button label="Save" (click)="updateTheTask(updatedTask)"></p-button>
     </div>
   </p-dialog>
 </div>
